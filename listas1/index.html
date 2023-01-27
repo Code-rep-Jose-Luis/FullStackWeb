@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="description" content="Varios ejemplos de listas" >
+    <meta name="keywords" content="Html, Css, JavaScript, TypeScript, Angular" >
+    <meta name="author" content="José Luis Romero" >
+    <title>Ejemplo listas</title>
+
+</head>
+<body>
+
+    <!--ol>li*3-->
+    <ol>
+        <li>Elemento 1</li>
+        <li>Elemento 2</li>
+        <li>Elemento 3</li>
+    </ol>
+    <!--ol>li{Elemento $}*3-->
+    
+    <ol>
+        <li><em>Elemento 1</em>
+            <!--ul>li{Elemento 1.$}*5-->
+            <ul>
+                <li>Elemento 1.1</li>
+                <li>Elemento 1.2
+                    <!--ul>li{Elemento 1.2.$}*3-->
+                    <ul>
+                        <li><a href="https://www.marca.com" title="La pagina del marca">Pagina del Marca</a> </li>
+                        <li><a href="https://www.marca.com" title="La pagina del marca" target="_blank" rel="noopener noreferer">Pagina del Marca en nueva ventana</a></li>
+                        
+                        <li>Elemento 1.2.3</li>
+                    </ul>
+                </li>
+                <li>Elemento 1.3</li>
+                <li>Elemento 1.4</li>
+                <li>Elemento 1.5</li>
+            </ul>
+        </li>
+        <li>Elemento 2
+            <!--ul>li{Elemento 2.$}*3-->
+            <ul>
+                <li>Elemento 2.1</li>
+                <li>Elemento 2.2</li>
+                <li>Elemento 2.3
+                    <!--ol>li{Elemento 2.3.$}*2-->
+                    <ol>
+                        <li>Elemento 2.3.1</li>
+                        <li><a href="https://www.marca.com" title="La pagina del marca" target="_blank" rel="noopener noreferer"><img src="images/segway1.jpg" alt="segway" height="50"></a></li>
+                    </ol>
+                </li>
+            </ul>
+        </li>
+        <li>Simbolos raros: &lt; &gt; y &amp;</li>
+    </ol>
+    <p>
+        <strong>Texto en negrita</strong>
+        <i>texto en cursiva</i>
+        <u>texto subrayado</u>
+        <mark>texto resaltado</mark>
+        <small>texto pequeño</small>
+    </p>
+    <p>
+        El mundo es <del>plano</del><ins>redondo</ins>
+        La formula del afua es: H<sub>2</sub>O
+        El numero 4 es 2<sup>2</sup>
+    </p>
+
+    <dl>
+        <dt>Java</dt>
+        <dd>Java es un lenguaje de programacion que lleva mas de 30 años en el mercado</dd>
+        <dt>HTML</dt>
+        <dd>Este lenguaje, realmente no es un lenguaje de programacion, sino, un lenguaje de marcas, donde las etiquetas ayudan al navegador a saber que quieres expresar graficamente</dd>
+    </dl>
+
+</body>
+</html>
