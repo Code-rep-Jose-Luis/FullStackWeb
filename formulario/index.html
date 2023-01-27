@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="description" content="Ejemplo de formulario" >
+    <meta name="keywords" content="Html, Css, JavaScript, TypeScript, Angular" >
+    <meta name="author" content="José Luis Romero" >
+    <title>Ejemplo de formulario</title>
+
+</head>
+<body>
+
+    <form action="none">
+        <p>
+            <label for="nombre">
+                Nombre:
+                <input type="text" id="nombre" name="nombre">
+            </label>
+        </p>
+        <p>
+            <label for="apellidos">
+                Apellidos:
+                <input type="text" id="apellidos" name="apellidos" placeholder="apellidos">
+            </label>
+        </p>
+        <p>
+            <label for="password">
+                Contraseña:
+                <input type="password" id="password" name="password" minlength="6" maxlength="12" size="6">
+            </label>
+        </p>
+        <p>
+            <label for="edad">
+                Edad:
+                <input type="number" id="edad" name="edad" min="0">
+            </label>
+        </p>
+        <p>
+            <label for="fecha">
+                Fecha y hora local: 
+                <input type="datetime-local" id="fecha" name="fehca"  >
+            </label>
+        </p>
+        <p>
+            <label for="fechaNacimiento">
+                Fecha de Nacimiento: 
+                <input type="date" id="fechaNacimiento" name="fechaNacimiento" max="2023-01-27">                
+            </label>
+
+        </p>
+
+        <!-- p>(label[for="sexo"]{Sexo:})+(label[for="hombre"]{Hombre: }>input:radio[name=sexo]#hombre)+(label[for="mujer"]{Mujer: }>input:radio[name=sexo]#mujer) -->
+        <p>
+            <label>Sexo:</label>
+            <label for="hombre">Hombre: 
+                <input type="radio" name="sexo" id="hombre">
+            </label>
+            <label for="mujer">Mujer: 
+                <input type="radio" name="sexo" id="mujer">
+            </label>
+        </p>
+        <label for="file">
+            Fotos de perfil: 
+            <input type="file" name="fotos" id="file" accept="image/*" multiple>
+        </label>
+    
+        <p>
+                <input type="submit" name="submit" value="ENVIAR">
+                <input type="reset" name="reset" value="BORRAR">
+                <input type="button" name="programar" value="PROGRAMAR">
+        </p>
+        
+    </form>
+
+</body>
+</html>
+
