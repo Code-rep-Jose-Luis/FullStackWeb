@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="description" content="Ejemplo de formulario" >
+    <meta name="keywords" content="Html, Css, JavaScript, TypeScript, Angular" >
+    <meta name="author" content="José Luis Romero" >
+    <title>Ejemplo de formulario</title>
+    <style>
+        body{
+            background-color: darkslategray
+        }
+        h1{
+            text-align: right;
+            color: cadetblue;
+        }
+        #enviar{
+            float: right;
+            text-align: right;
+        }
+
+    </style>
+
+</head>
+<body>
+<h1>Hoteles El Paraiso</h1>
+<h2>Sistema de reserva de habitaciones:</h2>
+
+    <form action="none">
+        <p>
+            <label for="nombre">
+                Introduzca su nombre: 
+                <input type="text" id="nombre" name="nombre" required>
+            </label>
+        </p>
+        <p>
+            <label for="password">
+                Introduzca una clave para su identificación (4 letras): 
+                <input type="password" id="password" name="password" required minlength="4" maxlength="4" size="3">
+            </label>
+        </p>
+        <p>
+            <label for="habitacion">
+                Tipo de habitacion: 
+        
+            </label>
+        <p>
+
+            <input type="radio" id="habitacion" name="habitacion" >Individual
+            <input type="radio" id="habitacion" name="habitacion" checked>Doble
+        </p>
+        <p>
+                Opciones extra: 
+        <p>
+            <label for="desayuno">
+                <input type="checkbox" id="desayuno" name="desayuno" checked>Desayuno en cama
+            </label>
+            <label for="jakuzzi">
+                <input type="checkbox" id="jakuzzi" name="jakuzzi" >Jakuzzi
+            </label>
+            <label for="climatizador">
+                <input type="checkbox" id="climatizador" name="climatizador" >Climatizador
+            </label>
+        </p>
+        <p>
+            <button type="submit" id="enviar">
+                <img src="enviar.png" alt="enviar" height="50">
+            </button>
+                
+        </p>
+        
+    </form>
+
+</body>
+</html>
+
