@@ -18,7 +18,6 @@ function pedirNumero(cadena) {
     
 }
 
-
 let num1 = pedirNumero("Introduce 1 numero: ");
 
 let num2 = pedirNumero("Introduce otro numero: ");

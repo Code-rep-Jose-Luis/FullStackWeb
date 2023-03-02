@@ -1,0 +1,27 @@
+<html><title>Using Links </title>
+    <head>
+  <map name="my_image_map">
+  <area shape="rect" href="union4.jpg" coords="157,117,287,203">
+    <area shape="rect" href="union1.jpg" coords="10,12,134,96">
+    <area shape="rect" href="union2.jpg" coords="171,12,286,91">
+    <area shape="rect" href="union3.jpg" coords="5,118,132,201">
+    <area shape="default" href="union1.jpg">
+   </map>
+    </head>
+    <body>
+    <h2>Christmas on Union Square</h2>
+   <img src="union1.jpg"   width=300 height=240
+   usemap="#my_image_map">
+    <script language="JavaScript">
+        var lstr = "<ul>";
+       for ( var i = 0; i < document.links.length; i++ ){
+            lstr += "<li><a href=" + document.links[i].href;
+            lstr += ">link[" + i + "] </a>\n";
+        }
+       lstr += "</ul>";
+       document.open();
+       document.write(lstr);
+      document.close();
+    </script>
+    </body>
+    </html>

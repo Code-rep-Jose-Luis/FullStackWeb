@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html">
+		<meta name="author" content="Pablo Garramone">
+		<title>Ejercicio 3</title>
+	</head>
+	<body>
+		<div id="informacion">
+			<p>Este es el primer párrafo del ejemplo, vamos a introducir
+				<strong id="str" class="neg">negrita</strong> y
+				<a href="pru.html">enlace</a>
+			</p>
+			<h2>ejemplo 2</h2>
+			<p id="p2">Este es el segundo párrafo</p> <h1>ejemplo 3</h1>
+			<p> Este es el tercer párrafo</p>
+		</div>
+		<script>
+			//node name y inner html del primer parrafo
+			let numero1=document.getElementsByTagName("p");
+			console.log(numero1[0].nodeName+"\n"+numero1[0].innerHTML+"\n");
+			let numero2=document.querySelector("p");
+			console.log(numero2.nodeName+"\n"+numero2.innerHTML+"\n");
+			let numero3=document.querySelectorAll("p");
+			console.log(numero3[0].nodeName+"\n"+numero3[0].innerHTML+"\n");
+			let numero4=document.querySelector("div p");
+			console.log(numero4.nodeName+"\n"+numero4.innerHTML+"\n");
+			let numero5=document.querySelector("#informacion").children[0];
+			console.log(numero5.nodeName+"\n"+numero5.innerHTML+"\n");
+			let numero6=document.getElementById("informacion").children[0];
+			console.log(numero6.nodeName+"\n"+numero6.innerHTML+"\n");
+			let numero7=document.querySelector("div").children[0];
+			console.log(numero7.nodeName+"\n"+numero7.innerHTML+"\n");
+			let numero8=document.querySelector("#str").parentElement;
+			console.log(numero8.nodeName+"\n"+numero8.innerHTML+"\n");
+			let numero9=document.head.nextElementSibling.children[0].children[0];
+			console.log(numero9.nodeName+"\n"+numero9.innerHTML+"\n");
+
+		</script>
+	</body>
+</html>

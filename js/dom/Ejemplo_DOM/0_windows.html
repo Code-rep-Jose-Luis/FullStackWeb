@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html><head><title>Mostrar un Formulario de Entrada</title>
+    <script language="JavaScript">
+ function mostrarForm(miform) {
+     NuevaVentana=window.open('','','width=300,height=200');//open('URL','nombre_ventana','características'); http://www.lgm.cl/trabajos/params.html
+     entrada_nombre="<b>Tu nombre: " + miform.nombre_usuario.value
+           + "</b><br>";
+     NuevaVentana.document.write(entrada_nombre);
+       entrada_telefono="<b>Tu teléfono: " + miform.telefono_usuario.value
+           + "</b><br>";
+     NuevaVentana.document.write(entrada_telefono);
+    }
+  function cerrar_ventana(){
+       NuevaVentana.window.close();
+    }
+    </script>
+    </head>
+    <body><h2> Mostrar los datos del formulario en una pequeña ventana</h2><p>
+	   <form name="formtest">
+		   Por favor escribe tu nombre: <br>
+		   <input type="text" size="50" name="nombre_usuario"></p>
+		   <p>
+		   Por favor escribe tu teléfono: <br>
+		   <input type="text" size="30" name="telefono_usuario">
+		   </p>
+		   <p>
+		 <input type="button"
+			  value="mostrar datos formulario"
+			  onClick="mostrarForm(this.form)";>
+			</p>
+		</form>
+
+		<p>
+			<a href="javascript:void(0)" onClick="cerrar_ventana()">Pulsa aquí para cerrar la ventana pequeña</a>
+		</p>
+     </body>
+    </html>
+

@@ -1,0 +1,21 @@
+h1,label{
+    color:darkslateblue;
+    
+    
+}
+a:link{
+    color: red;
+}
+a:visited{
+    color: blue;
+}
+a:hover{
+    color: green;
+}
+a{
+    text-decoration: none;
+}
+#nombre{
+    color: blue;
+}
+

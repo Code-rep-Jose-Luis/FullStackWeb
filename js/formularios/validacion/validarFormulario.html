@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>Ejercicio Formularios DOM_EVENTOS</title>
+	<style>
+		body{
+			font-size:20px;
+			background-color:grey;
+		}
+		form,h2,h3{
+			background-color:bisque;
+			width:50%;
+			margin-left:auto;
+			margin-right:auto;		
+		}
+		</style>
+	<script src="eventos.js"></script>
+
+		
+</head>
+<body>
+	<h2>EJERCICIO 3 FORMULARIO</h2>
+
+	<h3>Formulario de registro</h3>
+	<form name="formulario" method="get" action="pagina2.html">
+		<fieldset>
+			<legend>
+				Datos usuario:
+			</legend>
+
+			<p>
+			<label>Nombre: <input type="text" name="nombre" maxlength="50"></label>
+			</p>
+
+			<p>
+				<label>Apellidos: <input type="text" name="apellidos" maxlength="50"></label>
+			</p>
+
+			<p>
+				Sexo: <label><input type="radio" name="sexo" value="hombre">Hombre</label>
+				<label><input type="radio" name="sexo" value="mujer">Mujer</label>
+			</p>
+
+			<p>
+				Correo: <label><input type="text" name="correo"></label>
+			</p>
+
+			<p>
+				Rol:<label>
+						<select name="rol" id="rol">
+
+							<option value="">--Elige una opción--</option>
+							<option value="estudiante">Estudiante</option>
+							<option value="profesor">Profesor</option>
+							<option value="ayudante">Ayudante</option>
+							<option value="administrador">Administrador</option>
+						</select>
+				 	</label>
+			</p>
+		</fieldset>
+		
+		<fieldset>
+			<legend>
+				Acciones:
+			</legend>
+			<p>
+			<label><input type="checkbox" name="informacion" value="informacion" checked>Deseo recibir información sobre novedades y ofertas</label>
+			</p>
+			<p>
+				<label><input type="checkbox" name="condiciones" value="condiciones" >Declaro haber leido y aceptar las condiciones generales del programa y la normativa sobre protección de datos</label>
+			</p>
+
+			<p>
+				<button type="submit" value="enviar">Enviar</button>
+				<button type="reset" value="borrar">Borrar</button>
+			</p>
+
+		</fieldset>
+		
+			
+	</form>
+
+</body>
+</html>

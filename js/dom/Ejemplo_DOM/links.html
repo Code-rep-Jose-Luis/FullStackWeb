@@ -1,0 +1,28 @@
+<html><title>Usar Links </title>
+    </head>
+    <h2>enlaces y sus propiedades</h2>
+    <body>
+   
+    <p>
+   <a href="http://www.jsworkshop.com:8080/test.cgi?lines=1#anchor">http://www.jsworkshop.com: 8080/test.cgi?lines=1#anchor</a>    </p>
+    <script language = "JavaScript">
+       document.write("<br><b>Este documento contiene "
+            +document.links.length + " links.<br></b>");
+           for (i = 0; i< document.links.length; i++){
+               document.write("<u>document.links["+i+"]:</u><br>");
+               document.write("<b>Nombre del host:</b> "
+                  +document.links[i].hostname +"<br>");
+              document.write("<b>href: </b>"
+                  +document.links[i].href +"<br>");
+              document.write("<b>nombre ruta:</b>"
+                  +document.links[i].pathname +"<br>");
+              document.write("<b>puerto:</b> "
+                  +document.links[i].port +"<br>");
+              document.write("<b>consulta:</b> "
+                  +document.links[i].search +"<br>");
+             document.write("<b>protocolo:</b> "
+                  +document.links[i].protocol +"<br><br>");
+            }
+    </script>
+    </body>
+    </html>

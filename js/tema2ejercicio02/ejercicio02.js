@@ -18,146 +18,61 @@ function pedirNumero(cadena) {
 
 }
 
-function pedirEstilo(cadena,tipos) {
-    let estilo = prompt(cadena).toLocaleUpperCase();
-    while (!tipos.includes(estilo)) {
+function pedirModo(cadena,tipos) {
+    let modo = prompt(cadena).toLocaleUpperCase();
+    while (!tipos.includes(modo)) {
         alert("Error!, Introduce un tipo");
-        estilo = prompt(cadena).toLocaleUpperCase();
+        modo = prompt(cadena).toLocaleUpperCase();
     }
-    console.log(estilo);
-    return estilo;
+    console.log(modo);
+    return modo;
 }
 
-let num1 = pedirNumero("Introduce 1 numero de 1 a 10: ");
-let num2 = pedirNumero("Introduce cuantos valores quieres de 1 a 10: ");
-
-if (num2 < num1) {
-    let temp = num1;
-    num1 = num2;
-    num2 = temp;
-}
-
-
-let tipo = pedirEstilo("Introduce si quieres verlo en LISTA, PARRAFO, TABLA o DESPLEGABLE",["LISTA", "PARRAFO", "TABLA","DESPLEGABLE"]);
-
-function dibujarLista(numero1, numero2) {
-    let numero=numero1;
-    let lineas=numero2;
-    let cadena = "<div style='border:1px solid black;'><ul>";
+function dibujar(numero1, numero2, inicio, final, iniFila, finFila, iniCelda="", finCelda="") {
+    let numero = numero1;
+    let lineas = numero2;
+    let cadena = inicio;
     for (let i = 1; i <= lineas; i++) {
-        cadena += "<li>" + numero + "X" + i + "=" + (numero * i) + "</li>";
+        cadena += iniFila+iniCelda+ numero + "X" + i + finCelda+iniCelda+"="+ finCelda+iniCelda + (numero * i) + finCelda+finFila;
     }
-    cadena=cadena+"</ul></div>";
-    console.log(cadena);
-    return cadena;
+    return cadena+final;
 }
+function menu(){
 
-function dibujarParrafo(numero1, numero2) {
-    let numero=numero1;
-    let lineas=numero2;
-    let cadena = "<div style='border:1px solid black;'>";
-    for (let i = 1; i <= lineas; i++) {
-        cadena += "<p>" + numero + "X" + i + "=" + (numero * i) + "</p>";
-    }
-    cadena=cadena+"</div>";
-    console.log(cadena);
-    return cadena;
-}
-function dibujarDesplegable(numero1, numero2,nombre="select") {
-    let numero=numero1;
-    let lineas=numero2;
-    let cadena = "<div><select name='"+nombre+"'>";
-    for (let i = 1; i <= lineas; i++) {
-        cadena += "<option value='"+i+"'>" + numero + "X" + i + "=" + (numero * i) + "</option>";
-    }
-    cadena=cadena+"</select></div>";
-    console.log(cadena);
-    return cadena;
-}
-
-function dibujarTabla(numero1, numero2,style="style='border:1px solid black;'") {
-    let cadena = "<table>" +
+    let modo="";
+    let num1=0;
+    let num2=0;
+    do {
+    modo = pedirModo("Introduce si quieres verlo en LISTA, PARRAFO, TABLA, DESPLEGABLE o SALIR",["LISTA", "PARRAFO", "TABLA","DESPLEGABLE","SALIR"]);
     
-    dibujarTab(numero1, numero2, "tr",style) +
-    "</table>"
-    console.log(cadena);
-    return cadena;
-}
-
-function dibujarTab(numero1, numero2, tipo = "td", atributo="") {
-    let numero = numero1;
-    let lineas = numero2;
-    let fila = tipo;
-    let cadena = "";
-    for (let i = 1; i <= lineas; i++) {
-        cadena += "<" + fila + "><td "+atributo+">" + numero + "X" + i + "</td><td "+atributo+">=</td><td "+atributo+">" + (numero * i) + "</td></" + fila + ">";
-    }
-    return cadena;
-}
-
-
-switch (tipo) {
-    case "LISTA":
-        document.write(dibujarLista(num1, num2));
-        break;
-    case "PARRAFO":
-        document.write(dibujarParrafo(num1, num2));
-        break;
-    case "TABLA":
-        document.write(dibujarTabla(num1, num2));
-    break;
-    case "DESPLEGABLE":
-        document.write(dibujarDesplegable(num1, num2));
-    break;
+    if (modo!= "SALIR") {
+        num1 = pedirNumero("Introduce 1 numero de 1 a 10: ");
+        num2 = pedirNumero("Introduce cuantos valores quieres de 1 a 10: ");
+        
+        if (num2 < num1) {
+            let temp = num1;
+            num1 = num2;
+            num2 = temp;
+        }
+        
+        switch (modo) {
+            case "LISTA":
+                document.write(dibujar(num1, num2,"<ul>","</ul>","<li>","</li>"));
+                break;
+            case "PARRAFO":
+                document.write(dibujar(num1, num2,"<div>","</div>","<p>","</p>"));
+                break;
+            case "TABLA":
+                document.write(dibujar(num1, num2,"<table>","</table>","<tr>","</tr>","<td>","</td>"));
+            break;
+            case "DESPLEGABLE":
+                document.write(dibujar(num1, num2,"<select>","</select>","<option>","</option>"));
+                break;
+            }
+        }
+            
+    }   while ( modo!="SALIR")
 
 }
 
-/*function dibujar(numero1, numero2, estilo = "",atributo="") {
-    let numero = numero1;
-    let lineas = numero2;
-    let tipo = estilo;
-    let extra= atributo;
-    let cadena = "";
-    for (let i = 1; i <= lineas; i++) {
-        cadena += "<" + tipo+" "+extra + ">" + numero + "X" + i + "=" + (numero * i) + "</" + estilo + ">";
-    }
-    return cadena;
-}
-
-function dibujarTab(numero1, numero2, tipo = "td", atributo) {
-    let numero = numero1;
-    let lineas = numero2;
-    let tipo = estilo;
-    let cadena = "";
-    for (let i = 1; i <= lineas; i++) {
-        cadena += "<" + tipo + "><td "+atributo+">" + numero + "X" + i + "</td><td "+atributo+">=</td><td "+atributo+">" + (numero * i) + "</td></" + estilo + ">";
-    }
-    return cadena;
-}
-
-function dibujarLista(numero1, numero2) {
-    let cadena = "<div><ul>" + dibujar(numero1, numero2, "li") + "</ul></div>"
-    console.log(cadena);
-    return cadena;
-}
-
-function dibujarParrafo(numero1, numero2) {
-    let cadena = "<div>" + dibujar(numero1, numero2, "p") + "</div>"
-    console.log(cadena);
-    return cadena;
-}
-function dibujarDesplegable(numero1, numero2) {
-    let cadena = "<div>" + dibujar(numero1, numero2, "p") + "</div>"
-    console.log(cadena);
-    return cadena;
-}
-
-function dibujarTabla(numero1, numero2,extra="style='border:1px solid black;'") {
-    let cadena = "<table>" +
-        dibujarTab(numero1, numero2, "tr",extra) +
-        "</table>"
-    console.log(cadena);
-    return cadena;
-}*/
-
-
+menu();

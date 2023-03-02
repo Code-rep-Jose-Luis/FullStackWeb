@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+ <html><head>
+    <title>El Objeto Navigator 2</title></head>
+    <body>
+    <h2>Sobre el Navegador</h2>
+    <script>
+     var NombreNavegador= navigator.appName;
+      var VersionNavegador = navigator.appVersion;
+      var AgenteNavegador= navigator.userAgent;
+       var plataforma=navigator.platform;
+       document.write("<font size='+1'>");
+      document.write("<b>El Nombre del Navegador es: </b> " +
+                      NombreNavegador + "<br>");
+      document.write("<b>La Versión del Navegador es: </b> " +
+                      VersionNavegador + "<br>");
+      document.write("<b>El \"user agent\" del navegador es: </b> " +
+                      AgenteNavegador + "<br>");
+      document.write("<b>La plataforma del Navegador:</b> " +
+                      plataforma + "<br>");
+       document.write("</font>");
+    </script>
+    </body>
+    </html>

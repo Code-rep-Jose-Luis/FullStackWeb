@@ -1,0 +1,16 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head><title>Detección Plugins</title>
+    </head><body bgcolor="lightgreen">
+    <font face="arial" size="+1">
+    <h2>Plugins Instalados(Netscape)</h2>
+    <script language="JavaScript">
+    for ( var i = 0;i < navigator.plugins.length; i++){
+      document.write ("<br>"+navigator.plugins[i].name+"<br>");
+         if(navigator.plugins[i].description){
+             document.write ("<font size='-1'>"+
+           navigator.plugins[i].description+
+             "<font size='+1'<br>");
+          }
+       }
+    </script>
+    </body></html>

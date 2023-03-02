@@ -1,0 +1,34 @@
+<html><title>Usar Links </title>
+    </head>
+    <h2>enlaces y sus propiedades</h2>
+    <body>
+   <a href="http://search.yahoo.com/bin/search?p=javascript">
+    Buscar javascript en Yahoo</a>
+    <p>
+   <a href="http://google.com" >Ir a Google</a>
+    <p>
+    Pulsa en la imagen para ir a yahoo <br>
+   <a href="http://www.yahoo.com">
+    <img src="yahoo.bmp">
+    </a>
+    <script>
+       document.write("<br><b>Este documento contiene "
+            +document.links.length + " links.<br></b>");
+           for (i = 0; i< document.links.length; i++){
+               document.write("<u>document.links["+i+"]:</u><br>");
+               document.write("<b>Nombre del host:</b> "
+                  +document.links[i].hostname +"<br>");
+              document.write("<b>href: </b>"
+                  +document.links[i].href +"<br>");
+              document.write("<b>nombre ruta:</b>"
+                  +document.links[i].pathname +"<br>");
+              document.write("<b>puerto:</b> "
+                  +document.links[i].port +"<br>");
+              document.write("<b>consulta:</b> "
+                  +document.links[i].search +"<br>");
+             document.write("<b>protocolo:</b> "
+                  +document.links[i].protocol +"<br><br>");
+            }
+    </script>
+    </body>
+    </html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>TITULO</h1>
+    <p id="p1">PARRAFO 1</p>
+    <p name="p2">PARRAFO 2</p>
+    <p class="parrafos">PARRAFO 3</p>
+    <p class="parrafos">PARRAFO 4</p>
+    
+
+    <script>
+        let madre=document.documentElement;
+        console.log(madre.lang);
+        madre.lang="en";
+        console.log(madre.nodeName);
+        let cabecera=document.head;
+        console.log(cabecera.nodeName);
+        let cuerpo=document.body;
+        console.log(cuerpo.nodeName);
+        let parrafo1=document.getElementById('p1');
+        console.log(parrafo1);
+        let parrafoClass=document.getElementsByClassName("parrafos");
+        console.log(parrafoClass[0]);
+        console.log(parrafoClass[1]);
+
+        let parrafosName=document.getElementsByTagName("p2");
+        console.log(parrafosName[0]);
+
+        </script>
+
+    </body>
+</html>

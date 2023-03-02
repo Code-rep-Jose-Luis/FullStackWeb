@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta name="description" content="Mi primera página web" >
+    <meta name="keywords" content="Html, Css, JavaScript, TypeScript, Angular" >
+    <meta name="author" content="José Luis Romero" >
+    <link rel="stylesheet" href="style.css">
+    <title>Página de ejemplo</title>
+
+
+</head>
+<body>
+    <form id="datos" action="segundo.html" method="get">
+
+        <fieldset><legend>Datos basicos</legend>
+            <p>
+            <label for="nombre">Nombre<br>
+                <input type="text" name="nombre" id="nombre" minlength="5" maxlength="50" size="30">
+            </label>
+            </p>
+
+            <p>
+                <label for="descipcion">Descripción <br>
+                    <textarea name="descipcion" id="descipcion" cols="100" rows="10"></textarea>
+                </label>
+            </p>
+
+            <p><label for="txtFoto">Foto<br>
+                <input type="text" name="txtFoto" id="txtFoto">
+                <input type="file" accept="image/*" name="fileFoto" id="fileFoto">
+            </label>
+            </p>
+            <p><input type="checkbox" name="contador" id="contador">Añadir contador de visitas</p>
+        </fieldset>
+        <fieldset><legend>Datos economicos</legend>
+            <p>
+                <label for="precio">Precio 
+                    <input type="number" name="precio" id="precio" min="0">€
+                </label>    
+                <label>Impustos
+                    <Select id="impustos" name="impustos">
+                        <option value="4">4%</option>
+                        <option value="7">7%</option>
+                        <option value="16">16%</option>
+                        <option value="25">25%</option>
+                    </Select>
+                </label>
+            </p>    
+            <p>
+                <label >Promocion <br>
+                    <input type="radio" name="promocion" id="ninguno" value="ninguno" checked>Ninguno <br>
+                    <input type="radio" name="promocion" id="transporte" value="transporte">Transporte gratuito <br>
+                    <input type="radio" name="promocion" id="descuento" value="descuento">Descuento 5%
+                </label>    
+            </p>
+        </fieldset>
+        <input type="submit" value="Enviar">
+    </form>
+    <a href="http://www.google.es">Encace a 1 pagina</a>
+</body>
+</html>

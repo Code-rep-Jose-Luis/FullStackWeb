@@ -1,0 +1,31 @@
+.squere{
+    list-style-type:square;
+}
+.none{
+    list-style-type:none;
+}
+.disq{
+    list-style-type:disc;
+}
+.circle{
+    list-style-type:circle;
+}
+.u-roman{
+    list-style-type:upper-roman;
+}
+.l-greek{
+    list-style-type:lower-greek;
+}
+.l-alpha{
+    list-style-type:lower-alpha;
+}
+.u-alpha{
+    list-style-type: upper-alpha;
+}
+.ordenadas{
+    color:blue;
+}
+
+.desordenadads{
+    color:purple;
+}
