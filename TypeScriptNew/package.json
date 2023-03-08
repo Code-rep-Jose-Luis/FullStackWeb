@@ -1,0 +1,21 @@
+{
+  "name": "typescriptnew",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc --build tsconfig.json",
+    "build:watch": "tsc --build tsconfig.json --watch",
+    "update":"tsc --build tsconfig.json -w",
+    "tscVer":"tsc -v",
+    "convertir":"tsc",
+    "update2":"tsc -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}

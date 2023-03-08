@@ -1,0 +1,16 @@
+{
+  "name": "ejerciciosbasicos",
+  "version": "1.0.0",
+  "description": "ejercicios basicos de typescript",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc",
+    "update": "tsc -w"
+  },
+  "author": "José Luis",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.9.5"
+  }
+}
