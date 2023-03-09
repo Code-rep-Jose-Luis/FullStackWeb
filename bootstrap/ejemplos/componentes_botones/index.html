@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Etiquetas obligatorias-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Etiqueta opcionales -->
+    <meta name="description" content="Mi primera página web">
+    <meta name="keywords" content="Html, Css, JavaScript, TypeScript, Angular, BootStrap">
+    <meta name="author" content="Francisco García">
+    <title>Botones</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-light">Light</button>
+        <button type="button" class="btn btn-dark">Dark</button>
+        <button type="button" class="btn btn-link">Link</button>
+    </div>
+    <div>
+        <a class="btn btn-primary" href="#" role="button">Link</a>
+        <button class="btn btn-primary" type="submit">Button</button>
+        <input class="btn btn-primary" type="button" value="Input">
+        <input class="btn btn-primary" type="submit" value="Submit">
+        <input class="btn btn-primary" type="reset" value="Reset">
+    </div>
+    <div>
+        <button type="button" class="btn btn-primary btn-lg">Large button</button>
+        <button type="button" class="btn btn-primary btn-sm">Small button</button>
+    </div>
+    <div>
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown button
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </div>
+        <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Periodicos
+            </a>
+
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="https://www.marca.com/">Marca</a></li>
+                <li><a class="dropdown-item" href="https://www.sport.es/es/">Sport</a></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <a class="btn btn-info dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Periodicos
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <h6 class="dropdown-header">Deportivos</h6>
+                </li>
+                <li><a class="dropdown-item" href="https://www.marca.com/">Marca</a></li>
+                <li><a class="dropdown-item" href="https://www.sport.es/es/">Sport</a></li>
+                <div class="dropdown-divider"></div>
+                <li>
+                    <h6 class="dropdown-header">Informativos</h6>
+                </li>
+                <li><a class="dropdown-item" href="https://www.20minutos.es/">20 Minutos</a></li>
+                <li><a class="dropdown-item" href="https://www.informacion.es/">Información</a></li>
+            </ul>
+        </div>
+
+        <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group me-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-primary">Opción 1</button>
+                <button type="button" class="btn btn-primary">Opción 2</button>
+                <button type="button" class="btn btn-primary">Opción 3</button>
+                <button type="button" class="btn btn-primary">Opción 4</button>
+            </div>
+            <div class="btn-group me-2" role="group" aria-label="Second group">
+                <button type="button" class="btn btn-secondary">Opción 5</button>
+                <button type="button" class="btn btn-secondary">Opción 6</button>
+                <button type="button" class="btn btn-secondary">Opción 7</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Third group">
+                <button type="button" class="btn btn-info">Opción 8</button>
+            </div>
+        </div>
+
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <button type="button" class="btn btn-primary">Opción 1</button>
+            <button type="button" class="btn btn-primary">Opción 2</button>
+
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Menú
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Opción 3</a></li>
+                    <li><a class="dropdown-item" href="#">Opción 4</a></li>
+                </ul>
+            </div>
+        </div>
+        <div>
+            <!-- Default dropend button -->
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Dropend
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Action two</a></li>
+                    <li><a class="dropdown-item" href="#">Action three</a></li>
+                </ul>
+            </div>
+
+            <!-- Split dropend button -->
+            <div class="btn-group dropend">
+                <button type="button" class="btn btn-secondary">
+                    Split dropend
+                </button>
+                <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="visually-hidden">Toggle Dropend</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Action two</a></li>
+                    <li><a class="dropdown-item" href="#">Action three</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
