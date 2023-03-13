@@ -1,0 +1,57 @@
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    {{title}}
+  </div>
+  <div>
+    <div class="form-check">
+      <input class="form-check-input" (change)="toggleFormat()" type="radio" name="exampleRadios" id="exampleRadios1"
+        value="option1" checked>
+      <label class="form-check-label" for="exampleRadios1">
+        Formato1
+      </label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" (change)="toggleFormat()" type="radio" name="exampleRadios" id="exampleRadios2"
+        value="option2">
+      <label class="form-check-label" for="exampleRadios2">
+        Formato2
+      </label>
+    </div>
+
+  </div>
+  <div class="card-block">
+    <form class="form">
+      <div class="form-group row"> <label class="col-form-label col-sm-2 text-sm-right" for="filterDesc">Filtro:</label>
+        <div class="col-sm-5"> <input type="text" [(ngModel)]="filterSearch" class="form-control" name="filterDesc"
+            id="filterDesc" placeholder="Filter..."> </div> <label class="col-form-label col-sm-5"> Filtrando por:
+          {{filterSearch}}</label>
+      </div>
+    </form>
+    <div class="table-responsive" *ngIf="products && products.length">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>
+              <button class="btn btn-sm" [ngClass]="{'btn-danger': showImage, 'btn-primary': !showImage}"
+                (click)="toggleImage()">
+                {{showImage?'Ocultar':'Mostrar'}} imagen
+              </button>
+            </th>
+            <th>{{headers.desc}}</th>
+            <th>{{headers.price}}</th>
+            <th>{{headers.avail}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products | productFilter:filterSearch">
+            <td><img [src]="product.imageUrl" [alt]="product.desc" [title]="product.desc|uppercase"
+                [style.height.px]="alturaImagen" *ngIf="showImage"></td>
+            <td [ngStyle]="{'color':colorTs}">{{product.desc}}</td>
+            <td [ngClass]="{'estilo1': quieroEstilo1, 'estilo2':quieroEstilo2}">{{product.price|currency}}</td>
+            <td>{{product.avail|date}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
