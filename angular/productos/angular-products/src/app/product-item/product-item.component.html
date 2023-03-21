@@ -1,0 +1,17 @@
+<!--<tr>
+  <td><img [src]="product.imageUrl" [alt]="product.desc" [title]="product.desc|uppercase"
+      [style.height.px]="alturaImagen" *ngIf="showImage"></td>
+  <td [ngStyle]="{'color':colorTs}">{{product.desc | uppercase}}</td>
+  <td [ngClass]="{'estilo1': quieroEstilo1, 'estilo2':quieroEstilo2}">{{product.price|currency:"EUR"}}</td>
+  <td>{{product.avail|date:"dd/MM/yyyy"}}</td>
+</tr>
+-->
+<div class="col-2 pl-2">
+  <img [style.height.px]="alturaImagen" [src]="product.imageUrl" *ngIf="showImage" alt="" [title]="product.desc | uppercase">
+  </div>
+  <div class="col-4" [ngStyle]="{'color':colorTs}">{{ product.desc }}</div>
+  <div class="col" [ngClass]="{'estilo1': quieroEstilo1, 'estilo2':quieroEstilo2}">{{ product.price | currency:'EUR':'symbol' }}</div>
+  <div class="col">{{ product.avail | date:'dd/MM/y' }}</div>
+  <div class="col">
+    <app-star-rating [rating]="product.rating" (ratingChanged)="changeRating($event)"></app-star-rating>
+    </div>

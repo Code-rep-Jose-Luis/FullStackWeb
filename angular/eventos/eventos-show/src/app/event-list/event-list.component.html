@@ -1,19 +1,44 @@
-<div class="row" *ngIf="events.length; else elseBlock" >
+<app-event-add (addEvent)="addEvent($event)"></app-event-add>
+<div class="row" *ngIf="events.length; else elseBlock">
+  <nav class="navbar navbar-light bg-light justify-content-between mt-3">
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="orderDate()">Orden por fecha</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" (click)="orderPrice()">Orden por precio</a>
+      </li>
+    </ul>
+    <form class="form-inline">
+      <div class="form-group row"> <label class="col-form-label col-sm-2 text-sm-right" for="filterDesc">Filtro:</label>
+        <div class="col-sm-5"> <input type="text" [(ngModel)]="filterSearch" class="form-control" name="filterDesc"
+            id="filterDesc" placeholder="Filter..."> </div> <label class="col-form-label col-sm-5"> Filtrando por:
+          {{filterSearch}}</label>
+      </div>
+    </form>
+    <!-- <select name="color" id="color" (change)="changeBackground()">
+      <option value="rojo">Rojo</option>
+      <option value="azul">Azul</option>
+    </select>
+    <select name="color" id="color" (change)="changeBackground2()">
+      <option value="rojo" >Rojo</option>
+      <option value="azul" >Azul</option>
+    </select>-->
+    <select [(ngModel)]="desplegable" name="color" id="color" (change)="changeBackground3()">
+      <option value="" >Blanco</option>
+      <option value="rojo" >Rojo</option>
+      <option value="azul" >Azul</option>
+    </select>
+  </nav>
+  <app-event-item class="col-6 mt-4" [event]="event" (deleteEvent)="borrar(event)"
+  [quieroEstilo1]="quieroEstilo1" [quieroEstilo2]="quieroEstilo2"
+  *ngFor="let event of events | eventFilter:filterSearch" > <!-- Repetir esto por cada evento -->
+    <!--<div class="card" [ngStyle]="{'background-color': style1 ? 'red' :'blue'}">-->
 
-  <div class="col-6 mt-4" *ngFor="let event of events"> <!-- Repetir esto por cada evento -->
-    <div class="card">
-      <img class="card-img-top" [src]="event.image" [style.width.px]="anchuraImagen" [alt]="event.description" [title]="event.description">
-    <div class="card-body">
-    <h4 class="card-title">{{event.title}}</h4>
-    <p class="card-text">{{event.description}}</p>
-    </div>
-    <div class="card-footer text-muted">
-      {{event.date}}
-    <span class="float-right">{{event.price}}€</span>
-    </div>
-    </div>
-    </div>
+  </app-event-item>
 
-  </div>
+</div>
 
-  <ng-template #elseBlock><h3>No hay eventos</h3></ng-template>
+<ng-template #elseBlock>
+  <h3>No hay eventos</h3>
+</ng-template>

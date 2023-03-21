@@ -1,13 +1,9 @@
-td{
-  vertical-align: middle;
+#product-list.component.css
+.headers {
+font-weight: bold;
+border-bottom: 1px solid #CCC; border-top: 1px solid #CCC; padding: 5px;
+margin-bottom: 5px;
 }
-.estilo1{
-  color: white;
-  background-color: red;
-  font-size: 1.5em;
-}
-  .estilo2{
-  color: yellow;
-  background-color: blue;
-  font-size: 1.5em;
+product-item:nth-child(odd) {
+background: #EEE;
 }

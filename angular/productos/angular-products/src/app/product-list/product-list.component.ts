@@ -1,37 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IProduct } from '../interfaces/i-product';
+import { ProductosService } from '../servicios/productos.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit{
   title = "Mi lista de productos";
-  headers = {image:"imagen",desc: 'Producto', price: 'Precio', avail: 'Disponible'};
-  alturaImagen=50;
-  colorTs="red";
+  headers = {puntuacion:"Puntuacion",image:"imagen",desc: 'Producto', price: 'Precio', avail: 'Disponible'};
   quieroEstilo1=true;
   quieroEstilo2=false;
   showImage = true;
   filterSearch="";
 
 
-  products:IProduct[] = [{
-    id: 1,
-    desc: 'SSD hard drive',
-    avail: new Date('2016-10-03'),
-    price: 75,
-    imageUrl: 'assets/ssd.jpg',
-    rating: 5
-    },{
-    id: 2,
-    desc: 'LGA1151 Motherboard',
-    avail: new Date('2016-09-15'),
-    price: 96.95,
-    imageUrl: 'assets/motherboard.jpg',
-    rating: 4
-    }];
+  products:IProduct[]=[];
 
     toggleImage() {
       this.showImage = !this.showImage;
@@ -40,6 +25,19 @@ export class ProductListComponent {
       this.quieroEstilo1 = !this.quieroEstilo1;
       this.quieroEstilo2 = !this.quieroEstilo2;
     }
-  //constructor() { }
-  //ngOnInit() { }
+  constructor (private servicio:ProductosService){}
+
+  ngOnInit() {
+    //this.products=this.servicio.getProductosStatic();
+    this.servicio.getProductos().subscribe(
+      productos=>this.products=productos,
+    );
+    /*this.servicio.getProductos().subscribe({
+      next:productos=>this.products=productos,
+      error:errores=>console.log(errores),
+      complete:()=>console.log("Productos traidos")
+    });*/
+
+
+  }
 }

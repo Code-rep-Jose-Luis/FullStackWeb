@@ -1,0 +1,11 @@
+.card-text { white-space: pre-wrap; }
+
+.estiloDefecto{
+  background-color: white;
+}
+.estiloRojo{
+  background-color: red;
+}
+.estiloAzul{
+  background-color: blue;
+}
