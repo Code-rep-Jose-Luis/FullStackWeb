@@ -1,6 +1,20 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Angular Events</a>
+<nav class="navbar navbar-expand navbar-dark bg-dark mb-4">
+  <a class="navbar-brand" href="#">{{title}}</a>
+  <ul class="navbar-nav mr-auto">
+  <li class="nav-item">
+  <a class="nav-link" [routerLink]="['/welcome']"
+  [routerLinkActive]="['active']">Welcome</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" [routerLink]="['/eventos']"
+  [routerLinkActive]="['active']">Eventos</a>
+  </li>
+  <li class="nav-item">
+  <a class="nav-link" [routerLink]="['/eventos/add']"
+  [routerLinkActive]="['active']">Nuevo evento</a>
+  </li>
+  </ul>
   </nav>
-  <div class="container">
-    <app-event-list></app-event-list>
-  </div>
+  <div class="container-fluid">
+  <router-outlet></router-outlet>
+</div>

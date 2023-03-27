@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IEvent } from '../interfaces/i-event';
 import { EventosService } from '../servicios/eventos.service';
 
@@ -10,6 +11,15 @@ import { EventosService } from '../servicios/eventos.service';
 export class EventAddComponent implements OnInit {
   ngOnInit(): void {
     this.inicializarEvento();
+    const id = +this.route.snapshot.params['id']; // Recibimos parámetro
+    console.log(id);
+    this.service.getEvento(id)
+    .subscribe({
+      next:evento => {this.newEvent=evento;
+        console.log(this.newEvent);},
+      error:r => console.error(r)
+    });
+
   }
 
   newEvent!: IEvent;
@@ -42,13 +52,12 @@ export class EventAddComponent implements OnInit {
     this.service.addEvento(this.newEvent)
       .subscribe({
         next: respu => {
-          this.addEvent.emit(this.newEvent);
-          this.inicializarEvento();
-          console.log(respu);
+          this.router.navigate(['/eventos']);
         },
         error: e => console.log(e)
       })
 
   }
-  constructor(private service: EventosService) { }
+  constructor(private router: Router,
+    private route: ActivatedRoute,private service: EventosService) { }
 }

@@ -27,17 +27,20 @@ export class EventListComponent implements OnDestroy, OnInit {
 
   events: IEvent[] = [];
 
-  orderDate() {
+  orderDate(event:Event) {
+    event.preventDefault(); // Cancelamos comportamiento por defecto ...
     this.filterSearch = "";
-    this.events.sort((x, y) => x.fecha.getMilliseconds() - y.fecha.getMilliseconds());
+    this.events.sort((x, y) => new Date(x.fecha).getDate() - new Date(y.fecha).getDate());
   }
-  orderPrice() {
+  orderPrice(event:Event) {
+    event.preventDefault(); // Cancelamos comportamiento por defecto ...
     this.filterSearch = "";
     this.events.sort((x, y) => x.precio - y.precio);
   }
+  /*
   addEvent(evento:IEvent) {
     this.events.push(evento);
-  }
+  }*/
 
 
   changeBackground() {
@@ -63,17 +66,19 @@ export class EventListComponent implements OnDestroy, OnInit {
     }
 
   }
-  borrar(evento:IEvent){
+  borrar(evento: IEvent) {
     this.service.deleteEvento(evento.id).subscribe({
-      next:resp=>{this.events=this.events.filter(e=>e!=evento);
-      console.log(resp);},
-      error:e=>console.log(e)
+      next: resp => {
+        this.events = this.events.filter(e => e != evento);
+        console.log(resp);
+      },
+      error: e => console.log(e)
     })
 
 
   }
 
-  constructor(private service:EventosService){
+  constructor(private service: EventosService) {
     //this.events=this.service.getEventos();
     /*this.service.getEventos().subscribe(
       eventos=>this.events=eventos,
@@ -82,12 +87,14 @@ export class EventListComponent implements OnDestroy, OnInit {
 
     );*/
     this.service.getEventos().subscribe(
-      eventos=>{
-        this.events=eventos
+      eventos => {
+        this.events = eventos
         console.log(eventos);
 
       });
     console.log(this.events);
 
   }
+
+
 }

@@ -11,6 +11,9 @@ import { EventosService } from './servicios/eventos.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BaseUrlInterceptor } from './interceptores/base-url.interceptor';
 import { RouterModule } from '@angular/router';
+import { EventDetailComponent } from './event-detail/event-detail.component';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { APP_ROUTES } from './app.routes';
 
 
 @NgModule({
@@ -19,13 +22,16 @@ import { RouterModule } from '@angular/router';
     EventListComponent,
     EventFilterPipe,
     EventItemComponent,
-    EventAddComponent
+    EventAddComponent,
+    EventDetailComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [EventosService,
     {

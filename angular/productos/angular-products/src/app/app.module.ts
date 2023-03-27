@@ -29,6 +29,7 @@ import { APP_ROUTES } from './app.routes';
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    RouterModule,
     RouterModule.forRoot(APP_ROUTES)
   ],
   providers: [

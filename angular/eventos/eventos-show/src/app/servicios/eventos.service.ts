@@ -80,4 +80,15 @@ export class EventosService {
     .pipe(map(response=>response.evento))
   }
 
+  getEvento(id:number):Observable<IEvent>{
+    return this.http.get<{
+      evento:IEvent,
+      mensaje?:string,
+      error?:string
+    }>(this.productURL+"/"+id)
+    .pipe(map(response=>response.evento));
+
+
+  }
+
 }

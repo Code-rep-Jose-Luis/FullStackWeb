@@ -1,0 +1,20 @@
+
+  <div class="card">
+    <div class="card-header text-white">
+      <img [src]="event.imagen" alt="event.descripcion" style.height.px={{anchuraImagen}}>
+    </div>
+    <div class="card-block p-3 text-center">
+     <div>{{event.nombre}}</div>
+      <div>Descripcion: {{ event.descripcion}}</div>
+      <div>Price: {{ event.precio | currency:'EUR':'symbol' }}</div>
+      <div>Available since: {{ event.fecha | date:'dd/MM/y' }}</div>
+
+      <div>
+        <button type="button" class="btn btn-default btn-primary" (click)="goBack()">
+          Volver
+        </button>
+      </div>
+    </div>
+  </div>
+  <!--<app-event-item [event]="event" (deleted)="goBack()"></app-event-item>
+  -->
