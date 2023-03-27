@@ -7,7 +7,8 @@ import { IEvent } from '../interfaces/i-event';
   providedIn: 'root'
 })
 export class EventosService {
-  private productURL="http://curso.i234.me:8080/eventos";
+  //private productURL="http://localhost:8080/api/eventos";
+  private productURL="api/eventos";
   constructor(private http: HttpClient){}
 
   /*getEventos(){
@@ -47,10 +48,36 @@ export class EventosService {
   getEventos():Observable<IEvent[]>{
     return this.http.get<{
       eventos:IEvent[],
-      ok:boolean,
-      errores?:string
+      mensaje?:string,
+      error?:string
     }>(this.productURL)
     .pipe(map(response=>response.eventos));
 
   }
+  /*getEventos():Observable<IEvent[]>{
+    return this.http.get<IEvent[]>(this.productURL) //recibe directamente los valores de entrada como una array
+    .pipe(map(response=>response));
+  }*/
+
+  /*addEvento(evento: IEvent): Observable<IEvent> {
+    return this.http.post<{evento:IEvent,mensaje:string,error?:string}>(this.productURL,evento)
+    .pipe(map(response=>response.evento))
+  }*/
+
+  addEvento(evento: IEvent): Observable<IEvent> {
+    return this.http.post<{evento:IEvent,mensaje:string,error?:string}>(this.productURL,evento)
+    .pipe(map(response=>response.evento))
+  }
+
+
+  /*deleteEvento(id:number): Observable<number> {
+    return this.http.delete<{evento:number,ok:boolean,error?:string}>(this.productURL+"/"+id)
+    .pipe(map(response=>response.evento))
+  }*/
+
+  deleteEvento(id:number): Observable<number> {
+    return this.http.delete<{evento:number,ok:boolean,error?:string}>(this.productURL+"/"+id)
+    .pipe(map(response=>response.evento))
+  }
+
 }

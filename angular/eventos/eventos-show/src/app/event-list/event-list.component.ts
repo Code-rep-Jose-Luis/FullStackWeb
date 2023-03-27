@@ -9,13 +9,13 @@ import { EventosService } from '../servicios/eventos.service';
 })
 export class EventListComponent implements OnDestroy, OnInit {
 
+
   ngOnInit(): void {
     console.log("OnInit");
   }
   ngOnDestroy(): void {
     console.log("OnDestroy");
   }
-
   index = 0;
 
   filterSearch = "";
@@ -29,11 +29,11 @@ export class EventListComponent implements OnDestroy, OnInit {
 
   orderDate() {
     this.filterSearch = "";
-    this.events.sort((x, y) => x.date.getMilliseconds() - y.date.getMilliseconds());
+    this.events.sort((x, y) => x.fecha.getMilliseconds() - y.fecha.getMilliseconds());
   }
   orderPrice() {
     this.filterSearch = "";
-    this.events.sort((x, y) => x.price - y.price);
+    this.events.sort((x, y) => x.precio - y.precio);
   }
   addEvent(evento:IEvent) {
     this.events.push(evento);
@@ -64,7 +64,13 @@ export class EventListComponent implements OnDestroy, OnInit {
 
   }
   borrar(evento:IEvent){
-    this.events=this.events.filter(e=>e!=evento);
+    this.service.deleteEvento(evento.id).subscribe({
+      next:resp=>{this.events=this.events.filter(e=>e!=evento);
+      console.log(resp);},
+      error:e=>console.log(e)
+    })
+
+
   }
 
   constructor(private service:EventosService){
@@ -75,7 +81,12 @@ export class EventListComponent implements OnDestroy, OnInit {
       ()=>console.log("Accion completada")
 
     );*/
-    this.service.getEventos().subscribe(eventos=>this.events=eventos);
+    this.service.getEventos().subscribe(
+      eventos=>{
+        this.events=eventos
+        console.log(eventos);
+
+      });
     console.log(this.events);
 
   }

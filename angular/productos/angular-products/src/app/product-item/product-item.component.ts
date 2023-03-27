@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { IProduct } from '../interfaces/i-product';
+import { ProductosService } from '../servicios/productos.service';
 
 @Component({
   selector: 'app-product-item',
@@ -13,7 +14,14 @@ export class ProductItemComponent{
   @Input() quieroEstilo2!: boolean;
   alturaImagen=50;
   colorTs="red";
+
+  constructor(private productosServicios:ProductosService){}
   changeRating(rating: number) {
-    this.product.rating = rating;
+    //this.product.rating = rating;
+    this.productosServicios.modificarEstrella(this.product.id,rating).subscribe({
+      next:respu=>{this.product.rating=rating;
+      console.log(respu);},
+      error:e=>console.log(e)
+    })
     }
 }

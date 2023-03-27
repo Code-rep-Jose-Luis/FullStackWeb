@@ -8,7 +8,9 @@ import { EventFilterPipe } from './pipes/event-filter.pipe';
 import { EventItemComponent } from './event-item/event-item.component';
 import { EventAddComponent } from './event-add/event-add.component';
 import { EventosService } from './servicios/eventos.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BaseUrlInterceptor } from './interceptores/base-url.interceptor';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -22,9 +24,15 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule
   ],
-  providers: [EventosService],
+  providers: [EventosService,
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: BaseUrlInterceptor,
+    multi: true,
+    } ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

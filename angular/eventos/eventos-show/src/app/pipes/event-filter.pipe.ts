@@ -8,7 +8,7 @@ export class EventFilterPipe implements PipeTransform {
 
   transform(event: IEvent[], filter: string): IEvent[] {
     const filterDef = filter ? filter.toLocaleLowerCase() : null;
-    return filterDef ? event.filter(e => e.description.toLocaleLowerCase().includes(filterDef)) : event;
+    return filterDef ? event.filter(e => e.descripcion.toLocaleLowerCase().includes(filterDef)) : event;
     /*return event.filter(e => e.description.toLocaleLowerCase()
       .includes(filter ? filter.toLocaleLowerCase() : "") ||
       e.title.toLocaleLowerCase()

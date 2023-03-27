@@ -1,5 +1,6 @@
-import { Component,EventEmitter,OnInit,Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { IEvent } from '../interfaces/i-event';
+import { EventosService } from '../servicios/eventos.service';
 
 @Component({
   selector: 'app-event-add',
@@ -11,16 +12,16 @@ export class EventAddComponent implements OnInit {
     this.inicializarEvento();
   }
 
-  newEvent!:IEvent;
+  newEvent!: IEvent;
 
-  inicializarEvento(){
+  inicializarEvento() {
     this.newEvent = {
-      id:0,
-      title: '',
-      description: '',
-      image: '',
-      price: 0,
-      date: new Date('')
+      id: 0,
+      nombre: '',
+      descripcion: '',
+      imagen: '',
+      precio: 0,
+      fecha: new Date('')
     };
   }
 
@@ -32,14 +33,22 @@ export class EventAddComponent implements OnInit {
     reader.readAsDataURL(fileInput.files[0]);
     reader.addEventListener('loadend', e => {
       //this.newEvent.image = (reader.result!=null)?reader.result.toString():"";
-      this.newEvent.image = reader.result as string;
+      this.newEvent.imagen = reader.result as string;
     });
   }
 
-  @Output() addEvent=new EventEmitter<IEvent>();
+  @Output() addEvent = new EventEmitter<IEvent>();
   addEvento() {
-  this.addEvent.emit(this.newEvent);
-  this.inicializarEvento();
-  }
+    this.service.addEvento(this.newEvent)
+      .subscribe({
+        next: respu => {
+          this.addEvent.emit(this.newEvent);
+          this.inicializarEvento();
+          console.log(respu);
+        },
+        error: e => console.log(e)
+      })
 
+  }
+  constructor(private service: EventosService) { }
 }

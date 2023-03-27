@@ -9,7 +9,11 @@
 <div class="col-2 pl-2">
   <img [style.height.px]="alturaImagen" [src]="product.imageUrl" *ngIf="showImage" alt="" [title]="product.desc | uppercase">
   </div>
-  <div class="col-4" [ngStyle]="{'color':colorTs}">{{ product.desc }}</div>
+  <div class="col-4"  [ngStyle]="{'color':colorTs}">
+    <a [routerLink]="['/products', product.id]">
+    {{ product.desc }}
+    </a>
+    </div>
   <div class="col" [ngClass]="{'estilo1': quieroEstilo1, 'estilo2':quieroEstilo2}">{{ product.price | currency:'EUR':'symbol' }}</div>
   <div class="col">{{ product.avail | date:'dd/MM/y' }}</div>
   <div class="col">

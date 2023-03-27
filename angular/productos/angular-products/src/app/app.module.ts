@@ -8,7 +8,12 @@ import { ProductFilterPipe } from './pipes/product-filter.pipe';
 import { ProductItemComponent } from './product-item/product-item.component';
 import { StarRatingComponent } from './star-rating/star-rating.component';
 import { ProductosService } from './servicios/productos.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BaseUrlInterceptor } from './interceptores/base-url.interceptor';
+import { WelcomeComponent } from './welcome/welcome.component';
+import { RouterModule } from '@angular/router';
+import { ProductoDetalleComponent } from './producto-detalle/producto-detalle.component';
+import { APP_ROUTES } from './app.routes';
 
 @NgModule({
   declarations: [
@@ -16,14 +21,24 @@ import { HttpClientModule } from '@angular/common/http';
     ProductListComponent,
     ProductFilterPipe,
     ProductItemComponent,
-    StarRatingComponent
+    StarRatingComponent,
+    WelcomeComponent,
+    ProductoDetalleComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(APP_ROUTES)
   ],
-  providers: [ProductosService],
+  providers: [
+    ProductosService,
+    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: BaseUrlInterceptor,
+    multi: true,
+    }
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
