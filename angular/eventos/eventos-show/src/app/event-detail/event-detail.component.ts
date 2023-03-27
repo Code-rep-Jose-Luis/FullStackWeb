@@ -45,4 +45,5 @@ export class EventDetailComponent implements OnInit {
   goBack() {
     this.router.navigate(['/eventos']);
   }
+
 }

@@ -1,7 +1,7 @@
 export interface IEvent {
   id:number;
   nombre: string;
-  imagen: string;
+  imagen?: string;
   fecha: Date;
   descripcion: string;
   precio: number;

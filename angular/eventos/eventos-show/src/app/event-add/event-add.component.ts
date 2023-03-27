@@ -29,7 +29,7 @@ export class EventAddComponent implements OnInit {
       id: 0,
       nombre: '',
       descripcion: '',
-      imagen: '',
+      imagen: undefined,
       precio: 0,
       fecha: new Date('')
     };
@@ -49,13 +49,26 @@ export class EventAddComponent implements OnInit {
 
   @Output() addEvent = new EventEmitter<IEvent>();
   addEvento() {
-    this.service.addEvento(this.newEvent)
+    if(this.newEvent.id==0){
+      this.service.addEvento(this.newEvent)
       .subscribe({
         next: respu => {
+          console.log(respu);
+
           this.router.navigate(['/eventos']);
         },
         error: e => console.log(e)
       })
+    }else{
+      this.service.modEvento(this.newEvent)
+      .subscribe({
+        next: respu => {
+          console.log(respu);
+          this.router.navigate(['/eventos']);
+        },
+        error: e => console.log(e)
+      })
+    }
 
   }
   constructor(private router: Router,

@@ -68,6 +68,10 @@ export class EventosService {
     return this.http.post<{evento:IEvent,mensaje:string,error?:string}>(this.productURL,evento)
     .pipe(map(response=>response.evento))
   }
+  modEvento(evento: IEvent): Observable<IEvent> {
+    return this.http.put<{evento:IEvent,mensaje:string,error?:string}>(this.productURL+"/"+evento.id,evento)
+    .pipe(map(response=>response.evento))
+  }
 
 
   /*deleteEvento(id:number): Observable<number> {

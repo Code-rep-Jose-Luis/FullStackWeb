@@ -18,4 +18,5 @@ delete() {
   this.deleteEvent.emit();
 }
 
+
 }
